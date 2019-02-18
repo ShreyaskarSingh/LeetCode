@@ -1,0 +1,31 @@
+ bool isMonotonic(vector<int>& A) {
+        int k=0;
+        if(A[0] <= A[A.size()-1]){
+            for(int i=1;i<A.size();i++){
+              if(A[i-1]<=A[i])
+                  continue;
+                else
+                {
+                    k++;
+                    break;
+                }
+            }
+        }
+            else
+            {
+                for(int i=1;i<A.size();i++){
+                  if(A[i-1]>=A[i])
+                      continue;
+                    else
+                    {
+                        k++;
+                        break;
+                    }
+                }
+            }
+        
+        if(k==0)
+            return true;
+        else
+            return false;
+    }
