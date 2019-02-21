@@ -1,0 +1,9 @@
+int repeatedNTimes(vector<int>& A) {
+        if(A[0]==A[A.size()-1])
+            return A[0];
+        for (int i=1;i< A.size();i++){
+            if(A[i-1]==A[i]||A[i-1]==A[i+1])
+                return A[i-1];
+        }
+        return -1;
+    }     
