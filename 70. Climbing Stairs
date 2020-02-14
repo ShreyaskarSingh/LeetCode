@@ -1,0 +1,21 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        
+        if n == 1:
+            return 1
+        
+        if n == 2:
+            return 2
+        
+        b1 = 2
+        b2 = 1
+        f = 0
+    
+        for i  in range(3,n+1):
+            f = b1 + b2
+            b2 = b1
+            b1 = f
+            
+            
+            
+        return f
