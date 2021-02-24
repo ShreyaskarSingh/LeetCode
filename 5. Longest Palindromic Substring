@@ -1,0 +1,23 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        def len_pal(s,leftidx,rightidx):
+            while  leftidx >= 0 and rightidx < len(s):
+                    if s[leftidx]!= s[rightidx]:
+                        break
+                    leftidx -= 1
+                    rightidx += 1
+            return [leftidx+1,rightidx]
+        
+        max_length = [0,1]
+        
+        for i in range(len(s)):
+            odd = len_pal(s,i-1,i+1)
+            even = len_pal(s,i-1,i)
+            bigger = max(odd,even, key = lambda x: x[1] - x[0])
+            max_length = max(max_length,bigger, key = lambda x: x[1] - x[0])
+        
+        return s[max_length[0]:max_length[1]]
